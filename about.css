@@ -1,0 +1,490 @@
+/* ================================================
+   NARMIN — ABOUT PAGE STYLES
+   css/about.css
+   Page-specific only. Global styles live in global.css
+   ================================================ */
+
+
+/* ────────────────────────────────────────────────
+   1. HERO SECTION
+──────────────────────────────────────────────── */
+.about-hero {
+  padding: 80px 80px 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.about-hero-inner {
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 28% 1fr 160px;
+}
+
+.about-hero-content {
+  grid-column: 2 / 4;
+}
+
+/* Ghost watermark */
+.hero-ghost {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(120px, 16vw, 220px);
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: fadeIn 1.2s 0.2s ease both;
+  letter-spacing: -0.04em;
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(52px, 8vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: #fff;
+  animation: slideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-title em {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.about-intro-line {
+  margin-top: 36px;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+
+.about-intro-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 520px;
+}
+
+.about-intro-text em {
+  font-style: normal;
+  color: #fff;
+}
+
+
+/* ────────────────────────────────────────────────
+   2. MAIN 3-COLUMN GRID
+   col 1 = empty gutter (28%)
+   col 2 = main content (1fr)
+   col 3 = right sidebar (160px)
+──────────────────────────────────────────────── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 28% 1fr 160px;
+  padding: 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.col-empty {}
+
+.center-main {
+  padding: 56px 48px 80px;
+}
+
+.sidebar-right {
+  padding: 56px 0 80px 28px;
+}
+
+
+/* ────────────────────────────────────────────────
+   3. SECTION LABELS
+──────────────────────────────────────────────── */
+.col-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red-dim);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.col-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(220, 0, 0, 0.2);
+}
+
+
+/* ────────────────────────────────────────────────
+   4. BIO BLOCK
+──────────────────────────────────────────────── */
+.bio-block {
+  margin-bottom: 40px;
+}
+
+.bio-block p {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.bio-block p:last-child { margin-bottom: 0; }
+
+.bio-block p em {
+  font-style: normal;
+  color: #fff;
+}
+
+
+/* ────────────────────────────────────────────────
+   5. EXPERTISE LIST
+──────────────────────────────────────────────── */
+.expertise-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 0;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: default;
+  transition: color 0.2s, padding-left 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hover-bg);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exp-item:hover { color: #fff; padding-left: 8px; }
+.exp-item:hover::before { transform: translateX(0); }
+.exp-item span { position: relative; z-index: 1; }
+
+.exp-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red-dim);
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.exp-item:hover .exp-dot { opacity: 1; }
+
+
+/* ────────────────────────────────────────────────
+   6. EDUCATION
+──────────────────────────────────────────────── */
+.edu-entry {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+}
+
+.edu-entry:last-child { margin-bottom: 0; }
+
+.edu-school {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.edu-degree {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.edu-gpa {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+
+/* ────────────────────────────────────────────────
+   7. WORK EXPERIENCE
+──────────────────────────────────────────────── */
+.work-entries {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-entry {
+  padding: 20px 0;
+  cursor: default;
+  transition: padding-left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.work-entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hover-bg);
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-entry:hover { padding-left: 10px; }
+.work-entry:hover::before { transform: translateX(0); }
+
+.work-company {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.work-entry:hover .work-company { color: rgba(255, 255, 255, 0.7); }
+
+.work-role {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
+}
+
+.work-period {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ────────────────────────────────────────────────
+   8. SKILL TAGS STRIP
+──────────────────────────────────────────────── */
+.skills-section {
+  padding: 40px 80px;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 28% 1fr 160px;
+}
+
+.skills-section-inner {
+  grid-column: 2 / 4;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  color: #fff;
+  border-color: rgba(220, 0, 0, 0.5);
+  background: rgba(220, 0, 0, 0.06);
+}
+
+
+/* ────────────────────────────────────────────────
+   9. RIGHT SIDEBAR
+──────────────────────────────────────────────── */
+.sidebar-group { margin-bottom: 36px; }
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 0;
+  transition: color 0.2s, padding-left 0.2s;
+  cursor: default;
+}
+
+.sidebar-item:hover { color: #fff; padding-left: 6px; }
+
+.contact-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.contact-link:hover { color: rgba(220, 0, 0, 0.85); }
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.lang-name {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lang-level {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+
+/* ────────────────────────────────────────────────
+   10. CLOSING STRIP
+──────────────────────────────────────────────── */
+.closing-strip {
+  padding: 64px 80px;
+  display: grid;
+  grid-template-columns: 28% 1fr 160px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.closing-content {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+  align-items: center;
+}
+
+.closing-left {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.closing-left strong {
+  font-style: normal;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.closing-right {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+.closing-right em { font-style: normal; color: #fff; }
+
+
+/* ────────────────────────────────────────────────
+   11. RESPONSIVE
+──────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .content-grid,
+  .about-hero-inner,
+  .closing-strip,
+  .skills-section       { grid-template-columns: 22% 1fr 140px; }
+}
+
+@media (max-width: 900px) {
+  .about-hero,
+  .content-grid,
+  .closing-strip,
+  .skills-section       { padding-left: 48px; padding-right: 48px; }
+  .content-grid         { grid-template-columns: 1fr 140px; }
+  .about-hero-inner     { grid-template-columns: 1fr; }
+  .about-hero-content   { grid-column: 1; }
+  .col-empty            { display: none; }
+  .sidebar-right        { padding-left: 0; padding-top: 32px; grid-column: 1 / -1; }
+  .closing-strip        { grid-template-columns: 1fr; }
+  .closing-content      { grid-template-columns: 1fr; gap: 20px; }
+  .skills-section       { grid-template-columns: 1fr; }
+  .skills-section-inner { grid-column: 1; }
+}
+
+@media (max-width: 680px) {
+  .about-hero,
+  .content-grid,
+  .closing-strip,
+  .skills-section       { padding-left: 32px; padding-right: 32px; }
+  .content-grid         { grid-template-columns: 1fr; }
+  .about-title          { font-size: clamp(42px, 10vw, 70px); }
+  .center-main          { padding: 40px 0; }
+}
