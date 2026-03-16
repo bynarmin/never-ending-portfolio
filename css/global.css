@@ -1,3 +1,4 @@
+GLOBAL 
 /* ================================================
    NARMIN — GLOBAL STYLES
    css/global.css
@@ -36,7 +37,7 @@ html {
   --red:        rgb(220, 0, 0);
   --red-dim:    rgba(220, 0, 0, 0.6);
 
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', serif;
   --font-ui:    'Poppins', sans-serif;
   --font-mono:  'Courier Prime', monospace;
 }
@@ -109,17 +110,31 @@ nav {
   -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 80px;
+  justify-content: space-between;
+  padding: 0 80px;
   position: sticky;
   top: 20px;
   z-index: 100;
 }
 
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
 /* Index page centers the nav */
 nav.nav-center {
   justify-content: center;
-  padding-left: 0;
+}
+nav.nav-center .nav-left {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-item {
@@ -129,6 +144,23 @@ nav.nav-center {
   align-items: center;
   z-index: 2;
   cursor: pointer;
+  text-decoration: none;
+}
+
+/* Book a Call - secondary button style */
+.nav-right .nav-item {
+  padding: 16px 10px;
+  border: 1px solid rgb(221, 0, 0);
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-right .nav-item:hover {
+  background-color: rgb(221, 0, 0);
+}
+
+.nav-right .nav-item:hover .nav-letter {
+  color: #fff;
 }
 
 /* Index page nav items have equal padding both sides */
@@ -233,22 +265,60 @@ nav.nav-center .nav-item {
    10. RESPONSIVE — shared breakpoints
 ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  nav                { padding-left: 48px; }
-  nav.nav-center     { padding-left: 0; }
+  nav                { padding: 0 48px; }
+  nav.nav-center     { padding: 0 48px; }
+  nav.nav-center .nav-left { position: static; transform: none; left: auto; }
   .nav-item          { padding-right: 20px; }
   nav.nav-center .nav-item { padding: 0 18px; }
+  .nav-right .nav-item { padding: 12px 20px; }
   .footer            { padding: 28px 48px; }
 }
 
 @media (max-width: 700px) {
   #cur-ring          { display: none; }
-  nav                { padding-left: 36px; }
+  nav                { padding: 0 36px; }
+  nav.nav-center .nav-left { position: static; transform: none; }
   nav.nav-center .nav-item { padding: 0 14px; }
+  .nav-right .nav-item { padding: 10px 6px; }
   .footer            { padding: 24px 36px; }
 }
 
 @media (max-width: 480px) {
+  nav                { padding: 0 24px; }
+  nav.nav-center     { padding: 0 24px; }
   nav.nav-center .nav-item { padding: 0 10px; }
   .nav-letter        { font-size: 9px; letter-spacing: 0.1em; }
+  .nav-right         { display: none; }
   .footer            { padding: 20px 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+}
+
+
+/* ────────────────────────────────────────────────
+   11. SHARED PAGE ELEMENTS
+   Used on multiple pages — lives here so every
+   page gets them without loading index.css
+──────────────────────────────────────────────── */
+
+/* Eyebrow label — used on index hero and about hero */
+.hello-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.7s 0.25s ease both;
+}
+
+.hello-tag::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
 }

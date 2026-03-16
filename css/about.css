@@ -5,29 +5,29 @@
    ================================================ */
 
 
+ABOUT
+
 /* ────────────────────────────────────────────────
    1. HERO SECTION
 ──────────────────────────────────────────────── */
 .about-hero {
-  padding: 80px 80px 0;
+  /* Matches home .main exactly — bottom-anchored, full viewport minus nav */
+  padding: 56px 80px 80px;
   position: relative;
   overflow: hidden;
-  min-height: 52vh;
+  min-height: calc(100vh - 56px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .about-hero-inner {
-  padding-bottom: 60px;
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 28% 1fr 160px;
 }
 
 .about-hero-content {
-  grid-column: 2 / 4;
+  width: 100%;
 }
 
 /* Ghost watermark */
@@ -51,10 +51,11 @@
 .about-title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(52px, 8vw, 110px);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-size: 80px;          /* matches .hl-word on home */
+  line-height: 0.9;
+  letter-spacing: -0.02em;
   color: #fff;
+  padding-bottom: 60px;     /* matches .headline padding-bottom */
   animation: slideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -141,7 +142,7 @@
 }
 
 .bio-block p {
-  font-family: var(--font-serif);
+  font-family: Playfair Display;
   font-size: 16px;
   line-height: 1.85;
   color: var(--text-muted);
@@ -312,15 +313,18 @@
    8. SKILL TAGS STRIP
 ──────────────────────────────────────────────── */
 .skills-section {
-  padding: 40px 80px;
+  padding: 0 80px 40px;
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: 28% 1fr 160px;
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
 }
 
 .skills-section-inner {
   grid-column: 2 / 4;
+  padding-left: 48px;
 }
 
 .skills-tags {
@@ -412,18 +416,18 @@
 ──────────────────────────────────────────────── */
 .closing-strip {
   padding: 64px 80px;
-  display: grid;
-  grid-template-columns: 28% 1fr 160px;
+  display: flex;
   align-items: center;
   position: relative;
   z-index: 2;
+  border-top: 1px solid var(--border);
 }
 
 .closing-content {
-  grid-column: 2 / 4;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 48px;
+  gap: 0 80px;
   align-items: center;
 }
 
@@ -464,7 +468,8 @@
 }
 
 @media (max-width: 900px) {
-  .about-hero,
+  .about-hero           { padding: 48px 48px 60px; }
+  .about-title          { font-size: 60px; }
   .content-grid,
   .closing-strip,
   .skills-section       { padding-left: 48px; padding-right: 48px; }
@@ -479,12 +484,17 @@
   .skills-section-inner { grid-column: 1; }
 }
 
-@media (max-width: 680px) {
-  .about-hero,
+@media (max-width: 700px) {
+  .about-hero           { padding: 36px 36px 52px; }
+  .about-title          { font-size: 44px; }
   .content-grid,
   .closing-strip,
   .skills-section       { padding-left: 32px; padding-right: 32px; }
   .content-grid         { grid-template-columns: 1fr; }
-  .about-title          { font-size: clamp(42px, 10vw, 70px); }
   .center-main          { padding: 40px 0; }
+}
+
+@media (max-width: 480px) {
+  .about-hero           { padding: 32px 24px 48px; }
+  .about-title          { font-size: 34px; padding-bottom: 40px; }
 }

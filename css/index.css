@@ -1,3 +1,4 @@
+INDEX 
 /* ================================================
    NARMIN — INDEX (HOME) PAGE STYLES
    css/index.css
@@ -12,7 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 80px 80px;
+  padding: 80px 80px 80px 80px;
   position: relative;
   min-height: calc(100vh - 56px);
   overflow: hidden;
@@ -55,28 +56,7 @@
 /* ────────────────────────────────────────────────
    3. HELLO TAG (eyebrow label)
 ──────────────────────────────────────────────── */
-.hello-tag {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 36px;
-  position: relative;
-  z-index: 1;
-  animation: fadeUp 0.7s 0.25s ease both;
-}
-
-.hello-tag::before {
-  content: '';
-  width: 20px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
-}
+/* .hello-tag moved to global.css */
 
 
 /* ────────────────────────────────────────────────
@@ -86,6 +66,7 @@
   position: relative;
   z-index: 1;
   padding-bottom: 60px;
+  padding-right: 80px;
 }
 
 .hl-stack {
@@ -235,13 +216,16 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0;
+  padding-bottom: 8px;
 }
 
+/* Matches .hello-tag style exactly */
 .section-label {
-  font-family: var(--font-serif);
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.04em;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--text-muted);
   display: flex;
   align-items: center;
@@ -252,7 +236,7 @@
   content: '';
   width: 20px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .section-count {
@@ -276,36 +260,20 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: padding-left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-/* Slide-in background on hover */
-.project-row::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--hover-bg);
-  transform: translateX(-101%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 0;
+.project-row:hover {
+  padding-left: 8px;
 }
-.project-row:hover::before { transform: translateX(0); }
-.project-row:hover { padding-left: 16px; }
 
-/* Left border reveal on hover */
-.project-row::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.35);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.project-row:hover .proj-name,
+.project-row:hover .proj-italic,
+.project-row:hover .proj-cat,
+.project-row:hover .proj-year {
+  color: rgba(255, 255, 255, 0.7);
 }
-.project-row:hover::after { transform: scaleY(1); }
 
 .proj-name {
   font-family: var(--font-serif);
@@ -364,13 +332,13 @@
    9. RESPONSIVE
 ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .main              { padding: 0 48px 60px; }
+  .main              { padding: 48px 48px 60px; }
   .projects-section  { padding: 48px 48px 80px; }
   .hl-word           { font-size: 60px; }
 }
 
 @media (max-width: 700px) {
-  .main              { padding: 0 36px 52px; }
+  .main              { padding: 36px 36px 52px; }
   .hl-word           { font-size: 44px; }
   .hero-body         { grid-template-columns: 1fr; gap: 36px 0; }
   .skills-list       { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 20px; }
@@ -383,11 +351,11 @@
 }
 
 @media (max-width: 480px) {
-  .main              { padding: 0 24px 48px; }
+  .main              { padding: 32px 24px 48px; }
   .hl-word           { font-size: 34px; }
   .hello-tag         { margin-bottom: 24px; }
   .hero-body p       { font-size: 17px; }
-  .headline          { padding-bottom: 40px; }
+  .headline          { padding-bottom: 40px; padding-right: 24px; }
   .projects-section  { padding: 32px 24px 56px; }
   .project-row::before,
   .project-row::after { display: none; }
