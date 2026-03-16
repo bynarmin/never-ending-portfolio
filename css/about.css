@@ -55,7 +55,8 @@ ABOUT
   line-height: 0.9;
   letter-spacing: -0.02em;
   color: #fff;
-  padding-bottom: 60px;     /* matches .headline padding-bottom */
+  padding-bottom: 42px;     /* matches .headline padding-bottom */
+  padding-left: 80px;
   animation: slideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -65,7 +66,9 @@ ABOUT
 }
 
 .about-intro-line {
-  margin-top: 36px;
+  margin-top: 42px;
+  padding-left: 80px;
+  padding-right: 80px;
   animation: fadeUp 0.7s 0.4s ease both;
 }
 
@@ -76,7 +79,7 @@ ABOUT
   font-style: italic;
   line-height: 1.9;
   color: var(--text-muted);
-  max-width: 520px;
+  max-width: 700px;
 }
 
 .about-intro-text em {
@@ -102,7 +105,7 @@ ABOUT
 .col-empty {}
 
 .center-main {
-  padding: 56px 48px 80px;
+  padding: 80px 48px 80px;
 }
 
 .sidebar-right {
@@ -142,8 +145,8 @@ ABOUT
 }
 
 .bio-block p {
-  font-family: Playfair Display;
-  font-size: 16px;
+  font-family: poppins;
+  font-size: 14px;
   line-height: 1.85;
   color: var(--text-muted);
   margin-bottom: 14px;
@@ -231,7 +234,7 @@ ABOUT
 
 .edu-degree {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #fff;
   line-height: 1.4;
@@ -240,7 +243,7 @@ ABOUT
 
 .edu-gpa {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--text-dim);
 }
@@ -276,7 +279,7 @@ ABOUT
 
 .work-company {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -300,7 +303,7 @@ ABOUT
 
 .work-period {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--text-dim);
   margin-top: 4px;
@@ -377,7 +380,7 @@ ABOUT
 
 .contact-link {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   font-style: italic;
   color: var(--text-muted);
   text-decoration: none;
@@ -447,9 +450,9 @@ ABOUT
 }
 
 .closing-right {
-  font-family: var(--font-serif);
-  font-size: 16px;
-  font-style: italic;
+  font-family: poppins;
+  font-size: 14px;
+  font-style: regular;
   line-height: 1.9;
   color: var(--text-muted);
 }
@@ -469,7 +472,8 @@ ABOUT
 
 @media (max-width: 900px) {
   .about-hero           { padding: 48px 48px 60px; }
-  .about-title          { font-size: 60px; }
+  .about-title          { font-size: 60px; padding-left: 48px; }
+  .about-intro-line     { padding-left: 48px; padding-right: 48px; }
   .content-grid,
   .closing-strip,
   .skills-section       { padding-left: 48px; padding-right: 48px; }
@@ -486,7 +490,8 @@ ABOUT
 
 @media (max-width: 700px) {
   .about-hero           { padding: 36px 36px 52px; }
-  .about-title          { font-size: 44px; }
+  .about-title          { font-size: 44px; padding-left: 36px; }
+  .about-intro-line     { padding-left: 36px; padding-right: 36px; }
   .content-grid,
   .closing-strip,
   .skills-section       { padding-left: 32px; padding-right: 32px; }
@@ -496,5 +501,6 @@ ABOUT
 
 @media (max-width: 480px) {
   .about-hero           { padding: 32px 24px 48px; }
-  .about-title          { font-size: 34px; padding-bottom: 40px; }
+  .about-title          { font-size: 34px; padding-bottom: 40px; padding-left: 24px; }
+  .about-intro-line     { padding-left: 24px; padding-right: 24px; }
 }

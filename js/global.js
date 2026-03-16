@@ -78,7 +78,7 @@ function getCurrentPage() {
 function applyNavLayout() {
   const nav = document.querySelector('nav');
   if (!nav) return;
-  if (getCurrentPage() === 'index' || getCurrentPage() === 'about') nav.classList.add('nav-center');
+  if (getCurrentPage() === 'index' || getCurrentPage() === 'about' || getCurrentPage() === 'website-redesign') nav.classList.add('nav-center');
 }
 
 function markActiveNav() {

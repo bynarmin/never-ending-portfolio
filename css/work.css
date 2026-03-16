@@ -44,22 +44,26 @@ body.work-page nav {
 }
 
 .work-hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 /* Meta row — Role / Timeline / Type / Tools */
 .work-meta-top {
   display: flex;
-  gap: 48px;
+  gap: 160px;
+  margin-top: 80px;
   margin-bottom: 64px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .work-meta-item {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 150px;
+  text-align: center;
 }
 
 .work-meta-label {
@@ -81,10 +85,11 @@ body.work-page nav {
 
 /* Title + subtitle */
 .work-hero-title-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 80px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 42px 0;
 }
 
 .work-title {
@@ -99,7 +104,7 @@ body.work-page nav {
 
 .work-title em {
   font-style: italic;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--work-text-dim);
 }
 
 .work-subtitle {
@@ -110,6 +115,7 @@ body.work-page nav {
   line-height: 1.8;
   color: var(--work-text-muted);
   animation: fadeUp 0.7s 0.3s ease both;
+  max-width: 600px;
 }
 
 
