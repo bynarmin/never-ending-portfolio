@@ -1,8 +1,6 @@
-INDEX 
 /* ================================================
    NARMIN — INDEX (HOME) PAGE STYLES
    css/index.css
-   Page-specific only. Global styles live in global.css
    ================================================ */
 
 
@@ -12,11 +10,11 @@ INDEX
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 80px 80px 80px 80px;
+  justify-content: flex-start;
+  padding: 72px 80px 96px;
   position: relative;
-  min-height: calc(100vh - 56px);
   overflow: hidden;
+  gap: 20px;
 }
 
 
@@ -27,10 +25,9 @@ INDEX
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 32px;
+  bottom: 24px;
   overflow: hidden;
   pointer-events: none;
-  opacity: 0.03;
   z-index: 0;
   user-select: none;
 }
@@ -42,11 +39,10 @@ INDEX
 }
 
 .marquee-inner span {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 160px;
   font-weight: 700;
-  font-style: italic;
-  color: #fff;
+  color: rgba(240, 240, 240, 0.04);
   letter-spacing: -0.02em;
   flex-shrink: 0;
   padding-right: 56px;
@@ -54,42 +50,23 @@ INDEX
 
 
 /* ────────────────────────────────────────────────
-   3. HELLO TAG (eyebrow label)
-──────────────────────────────────────────────── */
-/* .hello-tag moved to global.css */
-
-
-/* ────────────────────────────────────────────────
-   4. HEADLINE
+   3. HEADLINE
 ──────────────────────────────────────────────── */
 .headline {
   position: relative;
   z-index: 1;
-  padding-bottom: 32
-  px;
-  padding-left: 80px;
-  padding-right: 80px;
-}
-
-.hello-tag {
-  padding-left: 60px;
 }
 
 .hero-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 56px;
   position: relative;
   z-index: 1;
   animation: fadeUp 0.7s 0.55s ease both;
-  padding-left: 80px;
-  padding-right: 80px;
-  margin-top: 42px;
+  max-width: 560px;
 }
 
 .hero-body p {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   font-style: italic;
   line-height: 1.8;
@@ -110,35 +87,33 @@ INDEX
 }
 
 .hl-word {
-  font-family: var(--font-serif);
-  font-weight: 100;
-  font-size: 60px;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
   display: inline-flex;
   white-space: nowrap;
   animation: slideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
   overflow: visible;
 }
 
-/* Stagger each word's slide-up animation */
 .hl-row:nth-child(1) .hl-word:nth-child(1) { animation-delay: 0.00s; }
 .hl-row:nth-child(1) .hl-word:nth-child(3) { animation-delay: 0.08s; }
 .hl-row:nth-child(2) .hl-word:nth-child(1) { animation-delay: 0.16s; }
-.hl-row:nth-child(2) .hl-word:nth-child(2) { animation-delay: 0.22s; font-style: italic; color: var(--text-muted); }
+.hl-row:nth-child(2) .hl-word:nth-child(2) { animation-delay: 0.22s; font-style: italic; font-weight: 200; color: var(--text-muted); }
 .hl-row:nth-child(2) .hl-word:nth-child(3) { animation-delay: 0.28s; }
 
 .hl-sep {
   font-family: var(--font-mono);
-  font-size: clamp(16px, 2vw, 32px);
-  color: rgb(221, 0, 0);
+  font-size: clamp(14px, 1.8vw, 28px);
+  color: var(--red);
   align-self: center;
   flex-shrink: 0;
   animation: fadeIn 0.5s 0.3s ease both;
 }
 
-/* Each letter inside the headline — magnetic target */
 .hl-word .char {
   display: inline-block;
   will-change: transform;
@@ -148,92 +123,19 @@ INDEX
 
 
 /* ────────────────────────────────────────────────
-   5. HERO BODY (bio + skills grid)
+   4. HERO BODY
 ──────────────────────────────────────────────── */
-.hero-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 56px;
-  position: relative;
-  z-index: 1;
-  animation: fadeUp 0.7s 0.55s ease both;
-}
-
-.hero-body p {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.8;
-  color: var(--text-muted);
-}
-
 .hero-body p em {
   font-style: normal;
-  color: #fff;
+  color: var(--text);
 }
 
 
 /* ────────────────────────────────────────────────
-   6. SKILLS LIST
-──────────────────────────────────────────────── */
-.skills-list {
-  border-left: 1px solid var(--border);
-  padding-left: 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-.skill-row {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.2s, padding-left 0.25s ease;
-  overflow: hidden;
-}
-
-.skill-row::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--hover-bg);
-  transform: translateX(-101%);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.skill-row:hover { color: #fff; padding-left: 10px; }
-.skill-row:hover::before { transform: translateX(0); }
-
-.skill-num {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.18);
-  position: relative;
-  z-index: 1;
-}
-
-.skill-name {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ────────────────────────────────────────────────
-   7. PROJECTS SECTION
+   5. PROJECTS SECTION
 ──────────────────────────────────────────────── */
 .projects-section {
-  padding: 64px 80px 100px;
+  padding: 48px 80px 100px;
   position: relative;
   z-index: 2;
 }
@@ -246,11 +148,10 @@ INDEX
   padding-bottom: 8px;
 }
 
-/* Matches .hello-tag style exactly */
 .section-label {
   font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -263,23 +164,23 @@ INDEX
   content: '';
   width: 20px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(240, 240, 240, 0.28);
 }
 
 .section-count {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.18);
+  color: var(--text-dim);
 }
 
 
 /* ────────────────────────────────────────────────
-   8. PROJECT ROWS
+   6. PROJECT ROWS
 ──────────────────────────────────────────────── */
 .project-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 0 32px;
   padding: 28px 0;
@@ -288,108 +189,82 @@ INDEX
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: padding-left 0.25s ease;
 }
 
 .project-row:hover {
   padding-left: 8px;
 }
 
-.project-row:hover .proj-name,
-.project-row:hover .proj-italic,
-.project-row:hover .proj-cat,
-.project-row:hover .proj-year {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .proj-name {
-  font-family: var(--font-serif);
-  font-size: clamp(26px, 3vw, 50px);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 44px);
+  font-weight: 300;
   letter-spacing: -0.02em;
-  color: #fff;
-  line-height: 1;
+  color: var(--text);
+  line-height: 1.1;
   position: relative;
   z-index: 1;
 }
 
 .proj-italic {
   font-style: italic;
+  font-weight: 200;
   color: var(--text-muted);
-  font-size: 24px;
+  font-size: 0.55em;
+  letter-spacing: 0;
   transition: color 0.25s;
 }
-.project-row:hover .proj-italic { color: rgb(234, 26, 26); }
+.project-row:hover .proj-italic { color: var(--red); }
 
-.proj-cat {
+.proj-desc {
+  display: block;
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--text-muted);
-  position: relative;
-  z-index: 1;
-  transition: color 0.25s;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, padding-top 0.3s ease;
+  line-height: 1.6;
 }
-.project-row:hover .proj-cat { color: rgba(255, 255, 255, 0.65); }
 
-.proj-year {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  color: rgb(109, 109, 109);
-  position: relative;
-  z-index: 1;
-  transition: color 0.25s;
+.project-row:hover .proj-desc {
+  max-height: 2.5em;
+  opacity: 0.7;
+  padding-top: 6px;
 }
-.project-row:hover .proj-year { color: rgb(255, 0, 0); }
 
 .proj-arrow {
-  font-size: 18px;
-  color: var(--text-muted);
+  font-size: 16px;
+  color: var(--text-dim);
   position: relative;
   z-index: 1;
   transition: color 0.25s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.project-row:hover .proj-arrow { color: #fff; transform: translate(4px, -4px); }
+.project-row:hover .proj-arrow { color: var(--text); transform: translate(4px, -4px); }
 
 
 /* ────────────────────────────────────────────────
-   9. RESPONSIVE
+   7. RESPONSIVE
 ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .main              { padding: 48px 48px 60px; }
-  .projects-section  { padding: 48px 48px 80px; }
-  .hl-word           { font-size: 60px; }
-  .hello-tag         { padding-left: 48px; }
-  .headline          { padding-left: 48px; padding-right: 48px; }
-  .hero-body         { padding-left: 48px; padding-right: 48px; }
+  .main              { padding: 56px 48px 72px; }
+  .projects-section  { padding: 40px 48px 80px; }
 }
 
 @media (max-width: 700px) {
-  .main              { padding: 36px 36px 52px; }
-  .hl-word           { font-size: 44px; }
-  .hello-tag         { padding-left: 36px; }
-  .hero-body         { grid-template-columns: 1fr; gap: 36px 0; padding-left: 36px; padding-right: 36px; }
-  .skills-list       { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 20px; }
-  .projects-section  { padding: 40px 36px 64px; }
-  .project-row       { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 8px 12px; padding: 22px 0; }
-  .proj-name         { font-size: clamp(22px, 5vw, 36px); grid-column: 1; grid-row: 1; }
-  .proj-cat          { font-size: 10px; grid-column: 1; grid-row: 2; }
-  .proj-year         { display: none; }
+  .main              { padding: 48px 36px 64px; }
+  .projects-section  { padding: 32px 36px 64px; }
+  .project-row       { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 8px 12px; padding: 20px 0; }
+  .proj-name         { font-size: clamp(20px, 5vw, 32px); grid-column: 1; grid-row: 1; }
   .proj-arrow        { grid-column: 2; grid-row: 1 / 3; align-self: center; }
 }
 
 @media (max-width: 480px) {
-  .main              { padding: 32px 24px 48px; }
-  .hl-word           { font-size: 34px; }
-  .hello-tag         { margin-bottom: 24px; padding-left: 24px; }
-  .hero-body p       { font-size: 17px; }
-  .hero-body         { padding-left: 24px; padding-right: 24px; }
-  .headline          { padding-bottom: 40px; padding-left: 24px; padding-right: 24px; }
-  .projects-section  { padding: 32px 24px 56px; }
-  .project-row::before,
-  .project-row::after { display: none; }
+  .main              { padding: 40px 24px 56px; }
+  .projects-section  { padding: 28px 24px 56px; }
   .project-row:hover { padding-left: 0; }
 }
