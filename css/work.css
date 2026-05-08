@@ -150,9 +150,9 @@ body.work-page {
 .img-caption {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.1em;
-  color: var(--work-text-dim);
+  color: var(--work-text-muted);
   padding: 10px 0 40px;
 }
 
